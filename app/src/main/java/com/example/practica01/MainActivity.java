@@ -12,6 +12,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -35,8 +37,16 @@ public class MainActivity extends AppCompatActivity {
     private Switch recargaInicialSwitch;
     private SeekBar seekBar;
     private LinearLayout cargaInicialLayout;
+    private RadioGroup tarjetasRG;
+    private RadioButton debitoRadioButton;
+    private RadioButton creditoRadioButton;
 
     private boolean dateWrong=true;
+    private boolean pwWrong=true;
+    private boolean emailWrong= true;
+    private boolean tarjetaSeleccionada = false;
+    private boolean ccWrong=true;
+    private boolean ccvWrong = true;
 
     /* -------- TEXT WATCHERS --------- */
     private TextWatcher textWatcherPassword = new TextWatcher(){
@@ -73,9 +83,11 @@ public class MainActivity extends AppCompatActivity {
             if(!charSequence.toString().equals(passwordTextfield.getText().toString())){
                  passwordRepTextfield.setTextColor(Color.RED);
                  passwordRepTextfield.setError("Contraseña incorrecta");
+                 pwWrong=true;
             }
             else{
                 passwordRepTextfield.setTextColor(Color.BLACK);
+                pwWrong=false;
             }
         }
 
@@ -92,11 +104,13 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            if(charSequence.length()<16 || charSequence.length()>16){
+            if(charSequence.length()<16 ){
                 ccvTextfield.setEnabled(false);
+                ccWrong=true;
             }
             else{
                 ccvTextfield.setEnabled(true);
+                ccWrong=false;
             }
         }
 
@@ -106,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
         }
     };
     /* -------------------------------- */
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,25 +141,49 @@ public class MainActivity extends AppCompatActivity {
         terminosCheckBox = findViewById(R.id.terminosCheckBox);
         registrarButton = findViewById(R.id.registrarButton);
         seekbarText = findViewById(R.id.seekBarText);
+        tarjetasRG= findViewById(R.id.tarjetasRadioGroup);
+        creditoRadioButton=findViewById(R.id.creditoRadioButton);
+        debitoRadioButton=findViewById(R.id.debitoRadioButton);
 
 
         passwordTextfield.addTextChangedListener(textWatcherPassword);
         passwordRepTextfield.addTextChangedListener(textWatcherPassword2);
+
+        RadioGroup.OnCheckedChangeListener tarjetasListener = (radioGroup, i) -> {
+            switch(i){
+                case R.id.creditoRadioButton:
+                    tarjetaSeleccionada=true;
+                    break;
+                case R.id.debitoRadioButton:
+                    tarjetaSeleccionada=true;
+                    break;
+            }
+        };
+        tarjetasRG.setOnCheckedChangeListener(tarjetasListener);
+
         ccTextfield.addTextChangedListener(textWatcherCC);
 
-        emailTextfield.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if(!b){
-                    String email = emailTextfield.getText().toString();
-                    String afterArroba = email.substring(email.indexOf('@')+1,email.indexOf('.'));
-                    if(afterArroba.length()<3){
-                        emailTextfield.setError("Email Incorrecto");
-                    }
-                    else{
-                        emailTextfield.setError(null);
-
-                    }
+        ccvTextfield.setOnFocusChangeListener((view,b)->{
+            if(ccvTextfield.getText().toString().length()<3){
+                ccvWrong=true;
+                ccvTextfield.setError("Ingrese el CCV correctamente");
+            }
+            else{
+                ccvWrong=false;
+                ccvTextfield.setError(null);
+            }
+        });
+        emailTextfield.setOnFocusChangeListener((view, b) -> {
+            if(!b){
+                String email = emailTextfield.getText().toString();
+                String afterArroba = email.substring(email.indexOf('@')+1,email.indexOf('.'));
+                if(afterArroba.length()<3){
+                    emailTextfield.setError("Email Incorrecto");
+                    emailWrong=true;
+                }
+                else{
+                    emailTextfield.setError(null);
+                    emailWrong=false;
                 }
             }
         });
@@ -161,25 +201,17 @@ public class MainActivity extends AppCompatActivity {
                 añoInput=Integer.valueOf(añoString);
             }
             if (!b){
-                System.out.println("Mes input: "+ mesInput);
-                System.out.println("Mes: "+mes);
-                System.out.println("Año input: "+ añoInput);
-                System.out.println("Año: "+año);
                 if(mesInput> 0 && mesInput <= 12){
                     if(añoInput > año){
-                        System.out.println("1");
                         dateWrong=false;
                     }
                     else if (añoInput < año){
-                        System.out.println("2");
                         dateWrong = true;
                     }
                     else if( mesInput - mes >= 3 ){
-                        System.out.println("3");
                         dateWrong = false;
                     }
                     else {
-                        System.out.println("4");
                         dateWrong=true;
                     }
                 }
@@ -231,7 +263,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         registrarButton.setOnClickListener((View v)->{
-            Toast.makeText(this,"Usuario registrado con éxito",Toast.LENGTH_SHORT).show();
+
+            if(!ccvWrong && !ccWrong && !dateWrong && !emailWrong && !pwWrong && tarjetaSeleccionada){
+                Toast.makeText(this,"Usuario registrado con éxito",Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(this,"Verifique que todos los campos esten correctos",Toast.LENGTH_SHORT).show();
+            }
+
         });
     }
 }
