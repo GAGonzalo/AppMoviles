@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">practica01</string>
+    <string name="textFieldNombre">Nombre</string>
+    <string name="textFieldApellido">Apellido</string>
+    <string name="textFieldContraseña">Contraseña</string>
+    <string name="textFieldRepContraseña">Repetir Contraseña</string>
+    <string name="textFieldEmail">Email</string>
+    <string name="radioGroupTarjetas">Tipo de tarjeta:</string>
+    <string name="comboGroupFechaDeVencimiento">Fecha de vencimiento</string>
+    <string name="textFieldCBU">CBU</string>
+    <string name="textFieldAliasCBU">Alias CBU</string>
+    <string name="textFieldCC">Numero de tarjeta</string>
+    <string name="textFieldCCv">CCV</string>
+    <string name="switchCarga">Realizar carga inicial?</string>
+    <string name="terminos">Acepto los terminos y condiciones</string>
+    <string name="registrarButtonText">Registrar</string>
+    <string name="radioDebito">Debito</string>
+    <string name="radioCredito">Credito</string>
+    <string name="radioGroupTitle">Tipo de tarjeta</string>
+    <string name="cargaInicial">Carga inicial</string>
+    <string name="mes">Mes</string>
+    <string name="año">Año</string>
 </resources>
