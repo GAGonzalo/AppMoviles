@@ -1,10 +1,237 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:orientation="vertical"
+    android:isScrollContainer="true"
     tools:context=".MainActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/nombreTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/textFieldNombre"
+                android:inputType="text"
+                android:paddingVertical="15dp" />
+
+            <EditText
+                android:id="@+id/passwordTextfield"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/textFieldContraseña"
+                android:inputType="textPassword"
+                android:paddingVertical="15dp" />
+
+            <EditText
+                android:id="@+id/passwordRepTextfield"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:enabled="false"
+                android:hint="@string/textFieldRepContraseña"
+                android:inputType="textPassword"
+                android:paddingVertical="15dp" />
+
+            <EditText
+                android:id="@+id/emailTextfield"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/textFieldEmail"
+                android:inputType="textEmailAddress"
+                android:paddingVertical="15dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/radiogrouptitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="0dp"
+                    android:text="@string/radioGroupTitle" />
+
+                <RadioGroup
+                    android:id="@+id/tarjetasRadioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="horizontal"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="15dp">
+
+
+                    <RadioButton
+                        android:id="@+id/debitoRadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="@string/radioDebito" />
+
+                    <RadioButton
+                        android:id="@+id/creditoRadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="0"
+                        android:text="@string/radioCredito" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="15dp">
+
+                <EditText
+                    android:id="@+id/ccTextfield"
+                    android:layout_width="305dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:ems="10"
+                    android:hint="@string/textFieldCC"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:maxLength="16" />
+
+                <EditText
+                    android:id="@+id/ccvTextfield"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:ems="10"
+                    android:hint="@string/textFieldCCv"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:enabled="false"
+                    android:maxLength="3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="15dp">
+
+                <EditText
+                    android:id="@+id/mesTextfield"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="date"
+                    android:maxLength="2"
+                    android:hint="@string/mes"/>
+
+
+                <EditText
+                    android:id="@+id/añoTextfield"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="date"
+                    android:maxLength="2"
+                    android:hint="@string/año"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/cbuTextfield"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/textFieldCBU"
+                android:inputType="text"
+                android:paddingVertical="15dp" />
+
+            <EditText
+                android:id="@+id/aliasCbuTextfield"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/textFieldAliasCBU"
+                android:inputType="text"
+                android:paddingVertical="15dp" />
+
+            <Switch
+                android:id="@+id/cargaSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:paddingVertical="15dp"
+                android:text="@string/switchCarga"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <LinearLayout
+                android:id="@+id/cargaInicialLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:id="@+id/seekBarText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/cargaInicial" />
+
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    style="@style/Widget.AppCompat.SeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="false"
+                    android:max="1500"
+                    android:min="1"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="15dp"
+                    android:progress="0"
+
+                    />
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/terminosCheckBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="15dp"
+                android:text="@string/terminos" />
+
+            <Button
+                android:id="@+id/registrarButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:paddingVertical="15dp"
+                android:text="@string/registrarButtonText" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
