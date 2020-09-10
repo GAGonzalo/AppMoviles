@@ -18,6 +18,4 @@
     <string name="radioCredito">Credito</string>
     <string name="radioGroupTitle">Tipo de tarjeta</string>
     <string name="cargaInicial">Carga inicial</string>
-    <string name="mes">Mes</string>
-    <string name="año">Año</string>
 </resources>
