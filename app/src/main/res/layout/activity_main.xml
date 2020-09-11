@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:clipToPadding="true"
     android:orientation="vertical"
-    android:isScrollContainer="true"
     tools:context=".MainActivity">
 
     <ScrollView
@@ -115,7 +114,8 @@
                     android:hint="@string/textFieldCC"
                     android:importantForAutofill="no"
                     android:inputType="number"
-                    android:maxLength="16" />
+                    android:maxLength="16"
+                    android:visibility="visible" />
 
                 <EditText
                     android:id="@+id/ccvTextfield"
@@ -123,11 +123,12 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:ems="10"
+                    android:enabled="false"
                     android:hint="@string/textFieldCCv"
                     android:importantForAutofill="no"
                     android:inputType="number"
-                    android:enabled="false"
-                    android:maxLength="3" />
+                    android:maxLength="3"
+                    android:visibility="visible" />
             </LinearLayout>
 
             <LinearLayout
@@ -136,26 +137,20 @@
                 android:orientation="horizontal"
                 android:paddingVertical="15dp">
 
-                <EditText
-                    android:id="@+id/mesTextfield"
-                    android:layout_width="wrap_content"
+                <Spinner
+                    android:id="@+id/mesSpinner"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="date"
-                    android:maxLength="2"
-                    android:hint="@string/mes"/>
+                    android:spinnerMode="dialog"/>
 
-
-                <EditText
-                    android:id="@+id/añoTextfield"
-                    android:layout_width="wrap_content"
+                <Spinner
+                    android:id="@+id/añoSpinner"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="date"
-                    android:maxLength="2"
-                    android:hint="@string/año"/>
+                    android:spinnerMode="dialog"/>
+
             </LinearLayout>
 
             <EditText
