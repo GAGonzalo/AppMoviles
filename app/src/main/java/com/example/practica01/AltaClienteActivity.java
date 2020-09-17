@@ -28,7 +28,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class AltaClienteActivity extends AppCompatActivity {
 
     private EditText passwordTextfield;
     private EditText passwordRepTextfield;
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_alta_cliente);
         setWidgets();
         setListeners();
 
@@ -327,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
             dateWrong=true;
         }
         if(dateWrong){
-            Toast.makeText(MainActivity.this, "Fecha incorrecta", Toast.LENGTH_LONG).show();
+            Toast.makeText(AltaClienteActivity.this, "Fecha incorrecta", Toast.LENGTH_LONG).show();
         }
     }
 }
