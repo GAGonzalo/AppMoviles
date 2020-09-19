@@ -41,9 +41,17 @@ public class PlatoAdapter extends RecyclerView.Adapter<PlatoAdapter.PlatoViewHol
     public void onBindViewHolder(@NonNull PlatoViewHolder holder, int position) {
 
         Plato plato = mDataset.get(position);
+<<<<<<< HEAD
 
         holder.nombreTV.setText(plato.getNombre());
         holder.precioTV.setText("Precio: $"+plato.getPrecio().toString());
+=======
+     //  holder.fotoIV.setImageResource(R.drawable.ic_launcher_foreground);
+        holder.nombreTV.setText(plato.getNombre());
+        holder.descripcionTV.setText(plato.getDescripcion());
+        holder.caloriasTV.setText("Calorias: "+ plato.getCalorias().toString());
+        holder.precioTV.setText("Precio: "+plato.getPrecio().toString());
+>>>>>>> develop
     }
 
     @Override
@@ -54,14 +62,28 @@ public class PlatoAdapter extends RecyclerView.Adapter<PlatoAdapter.PlatoViewHol
     public class PlatoViewHolder extends RecyclerView.ViewHolder {
 
         CardView cardView;
+<<<<<<< HEAD
         TextView nombreTV;
         TextView precioTV;
+=======
+        ImageView fotoIV;
+        TextView nombreTV;
+        TextView descripcionTV;
+        TextView precioTV;
+        TextView caloriasTV;
+>>>>>>> develop
 
         public PlatoViewHolder(@NonNull View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.platoCV);
             nombreTV = itemView.findViewById(R.id.nombrePlatoCV);
+<<<<<<< HEAD
             precioTV = itemView.findViewById(R.id.precioPlatoCV);
+=======
+            descripcionTV = itemView.findViewById(R.id.descripcionPlatoCV);
+            precioTV = itemView.findViewById(R.id.precioPlatoCV);
+            caloriasTV = itemView.findViewById(R.id.caloriasPlatoCV);
+>>>>>>> develop
 
         }
     }

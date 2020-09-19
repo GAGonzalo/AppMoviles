@@ -6,6 +6,7 @@ public class Plato {
     private Float precio;
     private Float calorias;
 
+<<<<<<< HEAD
     @Override
     public String toString() {
         return "Plato{" +
@@ -15,6 +16,8 @@ public class Plato {
                 ", calorias=" + calorias +
                 '}';
     }
+=======
+>>>>>>> develop
 
     public Plato() {
     }
