@@ -31,6 +31,10 @@ public class ListarPlatosActivity extends AppCompatActivity {
         mAdapter = new PlatoAdapter(platos,this);
         recyclerView.setAdapter(mAdapter);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        System.out.println(platos);
+>>>>>>> develop
 =======
         System.out.println(platos);
 >>>>>>> develop
@@ -39,6 +43,7 @@ public class ListarPlatosActivity extends AppCompatActivity {
     private void crearPlato() {
         platos = new ArrayList<>();
 <<<<<<< HEAD
+<<<<<<< HEAD
         platos.add(new Plato("Ejemplo de plato 1","Descripcion 1",Float.valueOf(1000),Float.valueOf(1)));
         platos.add(new Plato("Ejemplo de plato 2","Descripcion 2",Float.valueOf(200),Float.valueOf(2)));
         platos.add(new Plato("Ejemplo de plato 3","Descripcion 3",Float.valueOf(30),Float.valueOf(23)));
@@ -46,12 +51,17 @@ public class ListarPlatosActivity extends AppCompatActivity {
         platos.add(new Plato("Ejemplo de plato 5","Descripcion 5",Float.valueOf(555),Float.valueOf(25)));
         platos.add(new Plato("Ejemplo de plato 6","Descripcion 6",Float.valueOf(660),Float.valueOf(26)));
 =======
+=======
+>>>>>>> develop
         platos.add(new Plato("Titulo 1","Descripcion 1",Float.valueOf(1),Float.valueOf(1)));
         platos.add(new Plato("Titulo 2","Descripcion 2",Float.valueOf(2),Float.valueOf(2)));
         platos.add(new Plato("Titulo 2","Descripcion 2",Float.valueOf(2),Float.valueOf(2)));
         platos.add(new Plato("Titulo 2","Descripcion 2",Float.valueOf(2),Float.valueOf(2)));
         platos.add(new Plato("Titulo 2","Descripcion 2",Float.valueOf(2),Float.valueOf(2)));
         platos.add(new Plato("Titulo 2","Descripcion 2",Float.valueOf(2),Float.valueOf(2)));
+<<<<<<< HEAD
+>>>>>>> develop
+=======
 >>>>>>> develop
     }
 }

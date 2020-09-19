@@ -6,18 +6,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import android.view.MenuItem;
 =======
+=======
+>>>>>>> develop
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+<<<<<<< HEAD
+>>>>>>> develop
+=======
 >>>>>>> develop
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+<<<<<<< HEAD
 <<<<<<< HEAD
 import androidx.appcompat.widget.Toolbar;
 
@@ -25,10 +32,15 @@ import androidx.appcompat.widget.Toolbar;
 public class HomeActivity extends AppCompatActivity {
     private Toolbar toolbar;
 =======
+=======
+>>>>>>> develop
 
 
 public class HomeActivity extends AppCompatActivity {
 
+<<<<<<< HEAD
+>>>>>>> develop
+=======
 >>>>>>> develop
 
 
@@ -37,6 +49,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+<<<<<<< HEAD
 <<<<<<< HEAD
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Home Activity");
@@ -71,6 +84,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 =======
+=======
+>>>>>>> develop
          Button altaCliente = findViewById(R.id.registrarPersona32);
          Button altaPlato = findViewById(R.id.crearPlato);
          Button listarPlatos = findViewById(R.id.listarPlatos);
@@ -93,5 +108,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
+<<<<<<< HEAD
+>>>>>>> develop
+=======
 >>>>>>> develop
 }

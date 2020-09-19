@@ -5,6 +5,7 @@
     <item
         android:id="@+id/registrar"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:icon="@drawable/ic_baseline_person_add_24"
         android:title="@string/registrarToolbar"
         app:showAsAction="ifRoom" />
@@ -19,6 +20,8 @@
         android:title="@string/listarPlatosToolbar"
         app:showAsAction="ifRoom" />
 =======
+=======
+>>>>>>> develop
         android:icon="@android:drawable/ic_input_add"
         android:title="registrar"
         app:showAsAction="ifRoom"/>
@@ -28,5 +31,8 @@
     <item
         android:id="@+id/listarItems"
         android:title="listarItems" />
+<<<<<<< HEAD
+>>>>>>> develop
+=======
 >>>>>>> develop
 </menu>
