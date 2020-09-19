@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+<<<<<<< HEAD
+<<<<<<< HEAD
+    android:orientation="vertical"
+    >
+=======
+    android:orientation="vertical">
+>>>>>>> develop
+=======
+    android:orientation="vertical">
+>>>>>>> develop
+
+    <TextView
+        android:id="@+id/nuevoPlatoTextView"
+        style="@style/Widget.AppCompat.TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="20dp"
+<<<<<<< HEAD
+<<<<<<< HEAD
+        android:textColor="#000000"
+=======
+>>>>>>> develop
+=======
+>>>>>>> develop
+        android:selectAllOnFocus="false"
+        android:shadowRadius="10"
+        android:text="@string/nuevoPlato"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:typeface="sans" />
+
+    <EditText
+        android:id="@+id/tituloPlato"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/tituloPlato"
+        android:paddingVertical="18dp" />
+
+    <EditText
+        android:id="@+id/descripcionPlato"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|left"
+        android:ems="10"
+        android:hint="@string/descripcionPlato"
+        android:paddingVertical="18dp"
+        android:minLines="1"
+        android:maxLines="4"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="vertical"
+        android:inputType="textMultiLine"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/precioPlato"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/precioPlato"
+            android:inputType="numberDecimal"
+            android:paddingVertical="18dp"
+            />
+
+        <EditText
+            android:id="@+id/caloriasPlato"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/caloriasPlato"
+            android:inputType="numberDecimal"
+            android:paddingVertical="18dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/guardarPlato"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="18dp"
+<<<<<<< HEAD
+<<<<<<< HEAD
+        android:background="@drawable/button_rounded"
+        android:layout_margin="5dp"
+=======
+>>>>>>> develop
+=======
+>>>>>>> develop
+        android:text="@string/guardarPlato">
+
+    </Button>
+</LinearLayout>
