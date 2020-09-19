@@ -18,4 +18,19 @@
     <string name="radioCredito">Credito</string>
     <string name="radioGroupTitle">Tipo de tarjeta</string>
     <string name="cargaInicial">Carga inicial</string>
+<<<<<<< Updated upstream
+=======
+    <string name="bienvenido">Bienvenido/a</string>
+    <string name="descripcionPlato">Descripción</string>
+    <string name="precioPlato">Precio</string>
+    <string name="caloriasPlato">Calorias</string>
+    <string name="tituloPlato">Titulo</string>
+    <string name="nuevoPlato">Nuevo plato</string>
+    <string name="guardarPlato">Guardar</string>
+    <string name="verDetallesCV">Ver detalles</string>
+    <string name="registrarToolbar">Registrar Cliente</string>
+    <string name="crearPlatoToolbar">Crear nuevo plato</string>
+    <string name="listarPlatosToolbar">Ver lista de Platos</string>
+
+>>>>>>> Stashed changes
 </resources>

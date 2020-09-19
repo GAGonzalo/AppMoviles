@@ -223,6 +223,7 @@
                 android:id="@+id/registrarButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="4dp"
                 android:enabled="false"
                 android:paddingVertical="15dp"
                 android:text="@string/registrarButtonText" />
