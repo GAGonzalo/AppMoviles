@@ -3,7 +3,6 @@ package com.example.practica01.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,23 +40,12 @@ public class PlatoAdapter extends RecyclerView.Adapter<PlatoAdapter.PlatoViewHol
     public void onBindViewHolder(@NonNull PlatoViewHolder holder, int position) {
 
         Plato plato = mDataset.get(position);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
         holder.nombreTV.setText(plato.getNombre());
         holder.precioTV.setText("Precio: $"+plato.getPrecio().toString());
-=======
-=======
->>>>>>> develop
-     //  holder.fotoIV.setImageResource(R.drawable.ic_launcher_foreground);
-        holder.nombreTV.setText(plato.getNombre());
         holder.descripcionTV.setText(plato.getDescripcion());
-        holder.caloriasTV.setText("Calorias: "+ plato.getCalorias().toString());
-        holder.precioTV.setText("Precio: "+plato.getPrecio().toString());
-<<<<<<< HEAD
->>>>>>> develop
-=======
->>>>>>> develop
+
     }
 
     @Override
@@ -68,40 +56,18 @@ public class PlatoAdapter extends RecyclerView.Adapter<PlatoAdapter.PlatoViewHol
     public class PlatoViewHolder extends RecyclerView.ViewHolder {
 
         CardView cardView;
-<<<<<<< HEAD
-<<<<<<< HEAD
         TextView nombreTV;
         TextView precioTV;
-=======
-=======
->>>>>>> develop
-        ImageView fotoIV;
-        TextView nombreTV;
         TextView descripcionTV;
-        TextView precioTV;
-        TextView caloriasTV;
-<<<<<<< HEAD
->>>>>>> develop
-=======
->>>>>>> develop
+
 
         public PlatoViewHolder(@NonNull View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.platoCV);
             nombreTV = itemView.findViewById(R.id.nombrePlatoCV);
-<<<<<<< HEAD
-<<<<<<< HEAD
             precioTV = itemView.findViewById(R.id.precioPlatoCV);
-=======
             descripcionTV = itemView.findViewById(R.id.descripcionPlatoCV);
-            precioTV = itemView.findViewById(R.id.precioPlatoCV);
-            caloriasTV = itemView.findViewById(R.id.caloriasPlatoCV);
->>>>>>> develop
-=======
-            descripcionTV = itemView.findViewById(R.id.descripcionPlatoCV);
-            precioTV = itemView.findViewById(R.id.precioPlatoCV);
-            caloriasTV = itemView.findViewById(R.id.caloriasPlatoCV);
->>>>>>> develop
+
 
         }
     }

@@ -16,7 +16,7 @@ public class Usuario {
         this.email = email;
         this.credito = credito;
         this.tarjeta = tarjeta;
-        this.cuentaBancaria = cuentaBancaria;
+        this.cuentaBancaria=cuentaBancaria;
     }
 
     public int getId() {
