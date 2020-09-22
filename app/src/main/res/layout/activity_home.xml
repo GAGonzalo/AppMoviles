@@ -14,32 +14,4 @@
         android:theme="?attr/actionBarTheme"
         app:menu="@menu/home_menu_toolbar"/>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> develop
-    <Button
-        android:id="@+id/registrarPersona32"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Registrar Persona" />
-
-    <Button
-        android:id="@+id/crearPlato"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Crear Plato" />
-
-    <Button
-        android:id="@+id/listarPlatos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Listar Platos" />
-<<<<<<< HEAD
->>>>>>> develop
-=======
->>>>>>> develop
-
-
 </LinearLayout>
