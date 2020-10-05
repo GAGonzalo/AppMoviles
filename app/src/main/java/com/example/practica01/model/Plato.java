@@ -8,12 +8,7 @@ public class Plato {
 
     @Override
     public String toString() {
-        return "Plato{" +
-                "nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", precio=" + precio +
-                ", calorias=" + calorias +
-                '}';
+        return nombre+" - Precio: "+precio;
     }
 
 
@@ -25,6 +20,11 @@ public class Plato {
         this.descripcion = descripcion;
         this.precio = precio;
         this.calorias = calorias;
+    }
+
+    public Plato(String nombre, Float precio) {
+        this.nombre = nombre;
+        this.precio = precio;
     }
 
     public String getNombre() {

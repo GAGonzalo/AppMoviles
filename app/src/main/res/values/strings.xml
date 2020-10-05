@@ -26,7 +26,7 @@
     <string name="nuevoPlato">Nuevo plato</string>
     <string name="guardarPlato">Guardar</string>
 
-    <string name="verDetallesCV">Ver detalles</string>
+    <string name="pedirCV">Pedir</string>
     <string name="registrarToolbar">Registrar Cliente</string>
     <string name="crearPlatoToolbar">Crear nuevo plato</string>
     <string name="listarPlatosToolbar">Ver lista de Platos</string>

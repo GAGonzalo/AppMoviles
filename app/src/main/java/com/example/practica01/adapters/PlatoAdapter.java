@@ -1,8 +1,11 @@
 package com.example.practica01.adapters;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,8 +30,6 @@ public class PlatoAdapter extends RecyclerView.Adapter<PlatoAdapter.PlatoViewHol
 
     @NonNull
     @Override
-
-
     public PlatoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_plato,parent,false);
         PlatoViewHolder vh = new PlatoViewHolder(v);
@@ -39,12 +40,24 @@ public class PlatoAdapter extends RecyclerView.Adapter<PlatoAdapter.PlatoViewHol
     @Override
     public void onBindViewHolder(@NonNull PlatoViewHolder holder, int position) {
 
-        Plato plato = mDataset.get(position);
-
+        final Plato plato = mDataset.get(position);
 
         holder.nombreTV.setText(plato.getNombre());
-        holder.precioTV.setText("Precio: $"+plato.getPrecio().toString());
+        holder.precioTV.setText("$"+plato.getPrecio().toString());
         holder.descripcionTV.setText(plato.getDescripcion());
+        if(activity.getIntent().getExtras().containsKey("Listar")){
+            holder.pedirButtonCV.setVisibility(View.GONE);
+        }
+        if(activity.getIntent().getExtras().containsKey("Pedido")){
+            holder.pedirButtonCV.setVisibility(View.VISIBLE);
+        }
+        holder.pedirButtonCV.setOnClickListener((View v)->{
+            Intent intent = new Intent();
+            intent.putExtra("Nombre_Plato", plato.getNombre());
+            intent.putExtra("Precio_Plato", plato.getPrecio());
+            activity.setResult(Activity.RESULT_OK,intent);
+            activity.finish();
+        });
 
     }
 
@@ -59,6 +72,7 @@ public class PlatoAdapter extends RecyclerView.Adapter<PlatoAdapter.PlatoViewHol
         TextView nombreTV;
         TextView precioTV;
         TextView descripcionTV;
+        Button pedirButtonCV;
 
 
         public PlatoViewHolder(@NonNull View itemView) {
@@ -67,6 +81,8 @@ public class PlatoAdapter extends RecyclerView.Adapter<PlatoAdapter.PlatoViewHol
             nombreTV = itemView.findViewById(R.id.nombrePlatoCV);
             precioTV = itemView.findViewById(R.id.precioPlatoCV);
             descripcionTV = itemView.findViewById(R.id.descripcionPlatoCV);
+            pedirButtonCV = itemView.findViewById(R.id.pedirButtonCV);
+
 
 
         }
