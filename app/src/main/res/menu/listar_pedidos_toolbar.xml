@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nuevo_pedido_item"
+        android:title="Nuevo Pedido"
+        android:actionLayout="@layout/activity_home"
+        app:showAsAction="always|withText"/>
+
+
+</menu>
