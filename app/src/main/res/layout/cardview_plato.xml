@@ -32,7 +32,8 @@
                 android:layout_marginHorizontal="5dp"
                 android:layout_marginVertical="5dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/plato" />
+                app:srcCompat="@drawable/plato"
+                android:contentDescription="TODO" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,23 +70,24 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center|left"
                         android:layout_marginHorizontal="2dp"
-                        android:paddingRight="5dp"
-                        android:text="$1000"
+                        android:paddingEnd="5dp"
+                        android:text="@string/_1000"
                         android:textColor="#000000" />
 
                     <Button
                         android:id="@+id/detallesButtonCV"
                         android:layout_width="wrap_content"
-                        android:layout_height="23dp"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:layout_marginHorizontal="2dp"
                         android:layout_weight="0"
                         android:background="@drawable/button_rounded"
                         android:fontFamily="sans-serif"
                         android:gravity="center_horizontal|center_vertical"
-                        android:text="Detalles"
+                        android:text="@string/detalles"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="visible" />
 
                     <Button
                         android:id="@+id/pedirButtonCV"

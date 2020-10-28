@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Switch;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,16 +16,20 @@ import androidx.appcompat.widget.Toolbar;
 
 public class HomeActivity extends AppCompatActivity {
     private Toolbar toolbar;
+    private Switch switchDB;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        switchDB = findViewById(R.id.switchDB);
 
         toolbar = findViewById(R.id.homeToolbar);
         toolbar.setTitle("Home Activity");
         setSupportActionBar(toolbar);
+
+
 
     }
 
@@ -42,15 +48,20 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.crearItem:
                 Intent i2 = new Intent(this, AltaPlatoActivity.class);
+                i2.putExtra("Usar Api", switchDB.isChecked());
                 startActivity(i2);
+                switchDB.setVisibility(View.GONE);
                 break;
             case R.id.listarItems:
                 Intent i3 = new Intent(this,ListarPlatosActivity.class);
                 i3.putExtra("Listar","Listar Pedidos");
+                i3.putExtra("Usar Api", switchDB.isChecked());
                 startActivity(i3);
+                switchDB.setVisibility(View.GONE);
                 break;
 
         }
+
         return super.onOptionsItemSelected(item);
     }
 

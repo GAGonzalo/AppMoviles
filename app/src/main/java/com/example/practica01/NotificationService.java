@@ -1,11 +1,9 @@
-package com.example.practica01.model;
+package com.example.practica01;
 
 import android.app.IntentService;
 import android.content.Intent;
 
 import androidx.annotation.Nullable;
-
-import com.example.practica01.NotificationPublisher;
 
 public class NotificationService extends IntentService {
 

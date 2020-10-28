@@ -30,5 +30,18 @@
     <string name="registrarToolbar">Registrar Cliente</string>
     <string name="crearPlatoToolbar">Crear nuevo plato</string>
     <string name="listarPlatosToolbar">Ver lista de Platos</string>
+    <string name="precioTotal">Total: </string>
+    <string name="nuevo_pedido">Nuevo Pedido</string>
+    <string name="ingrese_su_email">Ingrese su Email</string>
+    <string name="direccion">Direccion</string>
+    <string name="numero">Numero</string>
+    <string name="tipo_de_pedido">Tipo de pedido:</string>
+    <string name="envio_a_domicilio">Envio a Domicilio</string>
+    <string name="take_away">Take Away</string>
+    <string name="agregar_plato">Agregar Plato</string>
+    <string name="confirmar_pedido">Confirmar Pedido</string>
+    <string name="_1000">$1000</string>
+    <string name="detalles">Detalles</string>
+    <string name="usar_db_local_api_rest">Usar DB Local / Api Rest</string>
 
 </resources>
