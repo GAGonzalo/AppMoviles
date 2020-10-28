@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="10dp"
-        android:text="Nuevo Pedido"
+        android:text="@string/nuevo_pedido"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Ingrese su Email"
+        android:hint="@string/ingrese_su_email"
         android:inputType="textEmailAddress"
         android:paddingVertical="10dp" />
 
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Direccion"
+            android:hint="@string/direccion"
             android:inputType="text" />
 
         <EditText
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Numero"
+            android:hint="@string/numero"
             android:inputType="number" />
     </LinearLayout>
 
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
             android:paddingTop="10dp"
-            android:text="Tipo de pedido:"
+            android:text="@string/tipo_de_pedido"
             android:textAlignment="viewStart"
             android:textSize="12sp" />
 
@@ -75,17 +75,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Envio a Domicilio" />
+                android:text="@string/envio_a_domicilio" />
 
             <RadioButton
                 android:id="@+id/takeAwayRB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Take Away" />
+                android:text="@string/take_away" />
         </RadioGroup>
 
     </LinearLayout>
+
 
     <Button
         android:id="@+id/agregarPlatoButton"
@@ -93,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:paddingVertical="10dp"
-        android:text="Agregar Plato"
+        android:text="@string/agregar_plato"
 
         />
 
@@ -104,12 +105,23 @@
         android:layout_marginHorizontal="7dp"
         android:paddingVertical="10dp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/precioTotal"
+        android:paddingVertical="10dp"
+        android:layout_marginHorizontal="7dp"
+        android:text="@string/precioTotal"
+        android:visibility="gone">
+
+    </TextView>
+
     <Button
         android:id="@+id/confirmarPedidoButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:paddingVertical="10dp"
-        android:text="Confirmar Pedido" />
+        android:text="@string/confirmar_pedido" />
 
 </LinearLayout>

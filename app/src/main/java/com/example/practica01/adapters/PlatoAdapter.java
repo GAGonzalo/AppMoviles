@@ -53,8 +53,7 @@ public class PlatoAdapter extends RecyclerView.Adapter<PlatoAdapter.PlatoViewHol
         }
         holder.pedirButtonCV.setOnClickListener((View v)->{
             Intent intent = new Intent();
-            intent.putExtra("Nombre_Plato", plato.getNombre());
-            intent.putExtra("Precio_Plato", plato.getPrecio());
+            intent.putExtra("Plato",plato);
             activity.setResult(Activity.RESULT_OK,intent);
             activity.finish();
         });

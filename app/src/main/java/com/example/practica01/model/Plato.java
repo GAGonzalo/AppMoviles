@@ -1,31 +1,41 @@
 package com.example.practica01.model;
 
-public class Plato {
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+import java.io.Serializable;
+
+@Entity
+public class Plato implements Serializable {
+    @PrimaryKey(autoGenerate = true)
+    private Long id;
+
+    @ColumnInfo(name = "nombre")
     private String nombre;
+
+    @ColumnInfo(name = "descripcion")
     private String descripcion;
-    private Float precio;
-    private Float calorias;
+
+    @ColumnInfo(name = "precio")
+    private Double precio;
+
+    @ColumnInfo(name = "calorias")
+    private Integer calorias;
 
     @Override
     public String toString() {
-        return nombre+" - Precio: "+precio;
+        return nombre+" - Precio: "+precio+ " - Id: "+id;
     }
 
 
-    public Plato() {
-    }
-
-    public Plato(String nombre, String descripcion, Float precio, Float calorias) {
+    public Plato(String nombre, String descripcion, Double precio, Integer calorias) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.calorias = calorias;
     }
 
-    public Plato(String nombre, Float precio) {
-        this.nombre = nombre;
-        this.precio = precio;
-    }
 
     public String getNombre() {
         return nombre;
@@ -43,19 +53,27 @@ public class Plato {
         this.descripcion = descripcion;
     }
 
-    public Float getPrecio() {
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(Float precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
 
-    public Float getCalorias() {
+    public Integer getCalorias() {
         return calorias;
     }
 
-    public void setCalorias(Float calorias) {
+    public void setCalorias(Integer calorias) {
         this.calorias = calorias;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

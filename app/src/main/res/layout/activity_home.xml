@@ -14,4 +14,14 @@
         android:theme="?attr/actionBarTheme"
         app:menu="@menu/home_menu_toolbar"/>
 
+    <Switch
+        android:id="@+id/switchDB"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:showText="false"
+        android:splitTrack="false"
+        android:text="@string/usar_db_local_api_rest"
+        android:textIsSelectable="false" />
+
 </LinearLayout>

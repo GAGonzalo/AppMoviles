@@ -2,6 +2,7 @@ package com.example.practica01;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,32 +15,48 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.practica01.adapters.PlatoAdapter;
 import com.example.practica01.model.Plato;
+import com.example.practica01.repository.PlatoRepository;
+import com.example.practica01.service.PlatoService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListarPlatosActivity extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+public class ListarPlatosActivity extends AppCompatActivity implements PlatoRepository.OnResultCallback<Plato> {
 
     private List<Plato> platos ;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private Toolbar toolbar;
+    private Boolean usar_api;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_platos);
 
+        usar_api=getIntent().getExtras().getBoolean("Usar Api");
+
         recyclerView = findViewById(R.id.recyclerView);
         toolbar = findViewById(R.id.listarPedidosToolbar);
 
-        crearPlato();
-        layoutManager = new LinearLayoutManager(this);
-        mAdapter = new PlatoAdapter(platos,this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(mAdapter);
+        this.platos = new ArrayList<>();
+        configRecyclerView();
 
+        if(usar_api){
+            obtenerPlatosApi();
+        }
+        else{
+            obtenerPlatos();
+        }
 
         toolbar.setTitle("Listar Pedidos");
         setSupportActionBar(toolbar);
@@ -57,8 +74,8 @@ public class ListarPlatosActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.nuevo_pedido_item:
-                System.out.println("asd");
                 Intent intent = new Intent(this,PedidoActivity.class);
+                intent.putExtra("Usar Api", usar_api);
                 startActivity(intent);
                 break;
         }
@@ -66,18 +83,63 @@ public class ListarPlatosActivity extends AppCompatActivity {
 
     }
 
-    private void crearPlato() {
-        platos = new ArrayList<>();
+    private void obtenerPlatos() {
 
-        platos.add(new Plato("Ejemplo de plato 1","Descripcion 1",Float.valueOf(1000),Float.valueOf(1)));
-        platos.add(new Plato("Ejemplo de plato 2","Descripcion 2",Float.valueOf(200),Float.valueOf(2)));
-        platos.add(new Plato("Ejemplo de plato 3","Descripcion 3",Float.valueOf(30),Float.valueOf(23)));
-        platos.add(new Plato("Ejemplo de plato 4","Descripcion 4",Float.valueOf(400),Float.valueOf(24)));
-        platos.add(new Plato("Ejemplo de plato 5","Descripcion 5",Float.valueOf(555),Float.valueOf(25)));
-        platos.add(new Plato("Ejemplo de plato 6","Descripcion 6",Float.valueOf(660),Float.valueOf(26)));
 
+       PlatoRepository platoRepository = new PlatoRepository(this.getApplication(),this);
+       platoRepository.findAllPlatos();
 
     }
 
 
+
+
+    private void obtenerPlatosApi(){
+        Gson gson = new GsonBuilder().setLenient().create();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:3000/")
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
+        PlatoService platoService = retrofit.create(PlatoService.class);
+
+        Call<List<Plato>> callPlatos = platoService.getPlatoList();
+        callPlatos.enqueue(
+                new Callback<List<Plato>>() {
+                    List<Plato> asd;
+                    @Override
+                    public void onResponse(Call<List<Plato>> call, Response<List<Plato>> response) {
+                        if (response.code() == 200) {
+                            Log.d("DEBUG", "Platos obtenidos");
+                            platos=response.body();
+                            configRecyclerView();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Plato>> call, Throwable t) {
+                        Log.d("DEBUG", "Error obteniendo los platos");
+                    }
+                }
+        );
+
+    }
+
+    private void configRecyclerView() {
+        layoutManager = new LinearLayoutManager(this);
+        mAdapter = new PlatoAdapter(platos, this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onResult(List result) {
+        platos = result;
+        configRecyclerView();
+    }
+
+    @Override
+    public void onResult(Plato result) {
+
+    }
 }
