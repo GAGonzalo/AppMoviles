@@ -44,4 +44,8 @@
     <string name="detalles">Detalles</string>
     <string name="usar_db_local_api_rest">Usar DB Local / Api Rest</string>
 
+    <string name="google_maps_key">AIzaSyCeMgRvGQ3htz21Rw_idslnD0r_yKCodqY</string>
+
+
+
 </resources>

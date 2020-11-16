@@ -31,6 +31,7 @@ import com.example.practica01.model.Pedido;
 import com.example.practica01.model.Plato;
 import com.example.practica01.repository.PedidoRepository;
 import com.example.practica01.service.PedidoService;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -71,15 +72,15 @@ public class PedidoActivity extends AppCompatActivity {
     public static final String PEDIDO_NOTIFICATION_CHANNEL_ID = "3132";
 
     private Application application;
+    private Button ubicacionButton;
 
+    private LatLng latLng;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo_pedido);
-
-
         usar_api=getIntent().getExtras().getBoolean("Usar Api");
         application =getApplication();
         createNotificationChannel();
@@ -107,6 +108,11 @@ public class PedidoActivity extends AppCompatActivity {
             Plato plato = (Plato) data.getExtras().get("Plato");
             precioTotal += plato.getPrecio();
             pedido.add(plato);
+        }
+
+        if(requestCode==32 && resultCode == RESULT_OK){
+            assert data != null;
+            latLng = (LatLng) data.getExtras().get("LatLng");
         }
     }
 
@@ -180,7 +186,7 @@ public class PedidoActivity extends AppCompatActivity {
         String numero = numeroTV.getText().toString();
         Boolean delivery = ((RadioButton)findViewById(R.id.domicilioRB)).isChecked();
         Boolean take_away = ((RadioButton)findViewById(R.id.takeAwayRB)).isChecked();
-        Pedido p = new Pedido(null,email,direccion,numero,take_away,delivery,pedido,precioTotal);
+        Pedido p = new Pedido(null,email,direccion,numero,take_away,delivery,pedido,precioTotal,latLng);
         return p;
     }
 
@@ -195,8 +201,16 @@ public class PedidoActivity extends AppCompatActivity {
         confirmarButton= findViewById(R.id.confirmarPedidoButton);
         listaPedidos =findViewById(R.id.pedidoRV);
         tipoPedido=findViewById(R.id.tipoPedidoRG);
+        ubicacionButton= findViewById(R.id.ubicacionButton);
     }
+
+
     private void setListeners(){
+        ubicacionButton.setOnClickListener(v -> {
+            Intent intent = new Intent(this,MapActivity.class);
+            startActivityForResult(intent,32);
+        });
+
         confirmarButton.setOnClickListener((View v)->{
 
             InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);

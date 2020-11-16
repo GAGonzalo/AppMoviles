@@ -69,6 +69,12 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/agregarFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="agregar foto" />
+
+    <Button
         android:id="@+id/guardarPlato"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

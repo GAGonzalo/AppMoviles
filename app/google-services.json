@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "656069450427",
+    "firebase_url": "https://lab-dam-295616.firebaseio.com",
+    "project_id": "lab-dam-295616",
+    "storage_bucket": "lab-dam-295616.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:656069450427:android:b184b644907e91d0c3e79e",
+        "android_client_info": {
+          "package_name": "com.example.practica01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "656069450427-9ustfda0v1en12c83uc9tici863m620o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTrctaHJ6zxI4yRPUbIM_A71KOR26HUiQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "656069450427-9ustfda0v1en12c83uc9tici863m620o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
