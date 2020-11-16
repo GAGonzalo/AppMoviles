@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -25,12 +26,14 @@ public class Pedido {
 
     private boolean delivery;
 
+    private LatLng location;
+
     @TypeConverters(PlatosConverter.class)
     private List<Plato> listaPlatos;
 
     private Double precioTotal;
 
-    public Pedido(Long id, String email, String direccion, String numero_direccion, boolean take_away, boolean delivery, List<Plato> listaPlatos, Double precioTotal) {
+    public Pedido(Long id, String email, String direccion, String numero_direccion, boolean take_away, boolean delivery, List<Plato> listaPlatos, Double precioTotal,LatLng location) {
         this.id = id;
         this.email = email;
         this.direccion = direccion;
@@ -39,6 +42,7 @@ public class Pedido {
         this.delivery = delivery;
         this.listaPlatos = listaPlatos;
         this.precioTotal = precioTotal;
+        this.location=location;
     }
 
     public Long getId() {
@@ -71,6 +75,14 @@ public class Pedido {
 
     public void setNumero_direccion(String numero_direccion) {
         this.numero_direccion = numero_direccion;
+    }
+
+    public LatLng getLocation() {
+        return location;
+    }
+
+    public void setLocation(LatLng location) {
+        this.location = location;
     }
 
     public boolean isTake_away() {
@@ -115,6 +127,16 @@ public class Pedido {
         public String saveList(List<Plato> listOfPlatos) {
             return new Gson().toJson(listOfPlatos);
         }
+
+        @TypeConverter
+        public LatLng latlngFromString(String latlng){
+            return new Gson().fromJson(latlng, new TypeToken<LatLng>() {}.getType());
+        }
+
+        @TypeConverter
+        public String saveLatLng(LatLng latLng){
+            return new Gson().toJson(latLng);
+        }
     }
 
     @Override
@@ -126,6 +148,7 @@ public class Pedido {
                 ", numero_direccion='" + numero_direccion + '\'' +
                 ", take_away=" + take_away +
                 ", delivery=" + delivery +
+                ", location=" + location +
                 ", listaPlatos=" + listaPlatos +
                 ", precioTotal=" + precioTotal +
                 '}';

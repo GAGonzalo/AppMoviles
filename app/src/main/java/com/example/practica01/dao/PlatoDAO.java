@@ -13,7 +13,7 @@ import java.util.List;
 @Dao
 public interface PlatoDAO {
     @Insert
-    void insert(Plato plato);
+    long insert(Plato plato);
 
     @Delete
     void delete(Plato plato);

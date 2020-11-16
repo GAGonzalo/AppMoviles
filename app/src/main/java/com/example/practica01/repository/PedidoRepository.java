@@ -11,11 +11,11 @@ import java.util.List;
 
 public class PedidoRepository {
     private PedidoDAO pedidoDao;
-    private PlatoRepository.OnResultCallback callback;
+    private OnResultCallback callback;
 
 
 
-    public PedidoRepository(Application application, PlatoRepository.OnResultCallback context){
+    public PedidoRepository(Application application, OnResultCallback context){
         AppDB db = AppDB.getInstance(application);
         pedidoDao = db.pedidoDAO();
         callback = context;
@@ -68,9 +68,9 @@ public class PedidoRepository {
     class BuscarPedidoById extends AsyncTask<String, Void, Pedido>{
 
         private PedidoDAO pedidoDAO;
-        private PlatoRepository.OnResultCallback<Pedido> callback;
+        private OnResultCallback<Pedido> callback;
 
-        public BuscarPedidoById(PedidoDAO pedidoDAO, PlatoRepository.OnResultCallback<Pedido> callback) {
+        public BuscarPedidoById(PedidoDAO pedidoDAO, OnResultCallback<Pedido> callback) {
             this.pedidoDAO = pedidoDAO;
             this.callback = callback;
         }
@@ -84,9 +84,9 @@ public class PedidoRepository {
     class BuscarPedidos extends AsyncTask<Void, Void, List<Pedido>>{
 
         private PedidoDAO pedidoDAO;
-        private PlatoRepository.OnResultCallback<Pedido> callback;
+        private OnResultCallback<Pedido> callback;
 
-        public BuscarPedidos(PedidoDAO pedidoDAO, PlatoRepository.OnResultCallback<Pedido> callback) {
+        public BuscarPedidos(PedidoDAO pedidoDAO, OnResultCallback<Pedido> callback) {
             this.pedidoDAO = pedidoDAO;
             this.callback = callback;
         }
@@ -133,5 +133,7 @@ public class PedidoRepository {
             return null;
         }
     }
+
+
 
 }

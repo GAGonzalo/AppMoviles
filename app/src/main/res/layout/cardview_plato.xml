@@ -27,12 +27,11 @@
             <ImageView
                 android:id="@+id/imageView"
 
-                android:layout_width="215dp"
+                android:layout_width="234dp"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="5dp"
                 android:layout_marginVertical="5dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/plato"
                 android:contentDescription="TODO" />
 
             <LinearLayout

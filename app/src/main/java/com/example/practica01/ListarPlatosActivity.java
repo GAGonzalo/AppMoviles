@@ -106,7 +106,6 @@ public class ListarPlatosActivity extends AppCompatActivity implements PlatoRepo
         Call<List<Plato>> callPlatos = platoService.getPlatoList();
         callPlatos.enqueue(
                 new Callback<List<Plato>>() {
-                    List<Plato> asd;
                     @Override
                     public void onResponse(Call<List<Plato>> call, Response<List<Plato>> response) {
                         if (response.code() == 200) {
@@ -140,6 +139,11 @@ public class ListarPlatosActivity extends AppCompatActivity implements PlatoRepo
 
     @Override
     public void onResult(Plato result) {
+
+    }
+
+    @Override
+    public void onResult(Long resultId) {
 
     }
 }

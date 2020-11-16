@@ -24,6 +24,8 @@ public class PlatoRepository {
         void onResult(List<T> result);
 
         void onResult(T result);
+
+        void onResult(Long resultId);
     }
 
     /*
@@ -34,7 +36,7 @@ public class PlatoRepository {
 
     public void insertPlato(final Plato plato) {
         // AppDB.databaseWriteExecutor.execute(() -> platoDao.insert(plato));
-        new InsertarPlato(platoDao).execute(plato);
+        new InsertarPlato(platoDao,callback).execute(plato);
     }
 
     public void deletePlato(final Plato plato) {
@@ -59,18 +61,27 @@ public class PlatoRepository {
 
     }
 
-    class InsertarPlato extends AsyncTask<Plato, Void, Void> {
+    class InsertarPlato extends AsyncTask<Plato, Void, Long> {
 
         private PlatoDAO platoDao;
+        private OnResultCallback<Plato> callback;
 
-        public InsertarPlato(PlatoDAO dao) {
+        public InsertarPlato(PlatoDAO dao, OnResultCallback<Plato> context) {
             this.platoDao = dao;
+            this.callback=context;
         }
 
         @Override
-        protected Void doInBackground(Plato... platoes) {
-            AppDB.databaseWriteExecutor.execute(() -> platoDao.insert(platoes[0]));
-            return null;
+        protected Long doInBackground(Plato... platoes) {
+
+            long id = platoDao.insert(platoes[0]);
+            return id;
+        }
+
+        @Override
+        protected void onPostExecute(Long aLong) {
+            super.onPostExecute(aLong);
+            callback.onResult(aLong);
         }
     }
 
